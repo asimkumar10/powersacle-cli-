@@ -22,14 +22,55 @@ I built and maintained this framework while preparing for professional certifica
 
 ## 💻 Complete Command Reference
 
-### Module 1: CLI Basics & General Cluster Info
-* **`isi --help`** or **`isi -h`**
-  * *Description:* Displays the primary core OneFS command structure, listing all top-level subcommands and standard execution syntax options.
-* **`isi_for_array "isi devices drive list \| grep -w da1"`**
-  * *Description:* Cluster-wide parallel executive tool. Fires the wrapped command across every single connected node simultaneously. The `-w` switch forces an exact matching filter for the boot/journal drive string.
+# Module 1: CLI Basics & General Cluster Info
 
-### Module 5: Role-Based Access Control (RBAC & ZRBAC)
-* **`isi auth roles modify ZoneAdmin --add-user=<username> --zone=<zone_name>`**
-  * *Description:* Exercises Zone-based Role-Based Access Control (ZRBAC) properties. Grants administrative dominion over isolated data sets strictly bounded inside a single specific Access Zone layer.
+---
+
+## `isi --help`
+## `isi -h`
+
+**Description:**  
+Displays the primary OneFS command structure and available subcommands.
+
+**Use Case:**  
+Used when learning CLI syntax or exploring available commands.
+
+---
+
+## `man isi`
+
+**Description:**  
+Opens the manual page for the `isi` utility.
+
+**Tips:**  
+- Press `q` to exit
+- Use `/keyword` to search
+
+---
+
+## `isi devices drive list | grep dev`
+
+**Description:**  
+Lists active drives attached to the local node.
+
+**Breakdown:**
+- `isi devices drive list` → Displays drives
+- `grep dev` → Filters active device entries
+
+---
+
+## `isi_for_array "isi devices drive list | grep -w da1"`
+
+**Description:**  
+Runs the command across all nodes simultaneously.
+
+**Important Flags:**
+- `-w` → Exact word match
+- `da1` → Specific boot/journal drive
+
+**Exam Tip:**  
+`isi_for_array` executes cluster-wide, unlike normal `isi` commands.
+
+---
 
 
